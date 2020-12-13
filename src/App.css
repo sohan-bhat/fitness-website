@@ -1,0 +1,20 @@
+body {
+    margin:0;
+    padding:0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bck_blue {
+    background: #152855;
+}
+
+footer .footer_disclaimer {
+    margin: 10px 0px;
+}
+
+footer {
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 30px 0px;
+}
