@@ -6,6 +6,8 @@ import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import MenuIcon from '@material-ui/icons/Menu'
 
+import { FitnessLogo } from "../ui/icons"
+
 class Header extends Component {
     render() {
         return (
@@ -13,23 +15,51 @@ class Header extends Component {
                 <AppBar position="relative">
                     <Toolbar
                         style={{
+                            display: "flex",
                             backgroundColor: "#03a9f4"
                         }}
                     >
                         <IconButton color="inherit">
                             <MenuIcon />
                         </IconButton>
+
+                        <div style={{ flexGrow: 1, marginTop: "5px" }}>
+                            <FitnessLogo
+                                link={true}
+                                linkTo="/"
+                                width="70px"
+                                height="70px"
+                            />
+                        </div>
+
+                        <Button
+                            variant="outlined"
+                            color="secondary"
+                            style={{
+                                position: "absolute",
+                                textTransform: "none",
+                                borderColor: "#f44336",
+                                left: "82%",
+                                padding: "4px 14px",
+                                fontWeight: "600"
+                            }}
+                            href="/register/user/signup"
+                            disableElevation
+                            className="button"
+                        >Sign Up</Button>
+
                         <Button
                             variant="contained"
                             color="secondary"
                             style={{
-                                marginLeft: "86%",
-                                textTransform: "none"
+                                position: "absolute",
+                                left: "89%",
+                                textTransform: "none",
+                                fontWeight: "600"
                             }}
-                            href="/register/user"
+                            href="/register/user/login"
                             disableElevation
-                            className="button"
-                        >Register</Button>
+                        >Log In</Button>
                     </Toolbar>
                 </AppBar>
             </div>

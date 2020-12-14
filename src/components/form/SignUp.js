@@ -3,18 +3,32 @@ import React, { Component } from 'react';
 import {
     FaFacebook,
     FaTwitter,
-    FaLinkedinIn
+    FaLinkedinIn,
 }
 
     from 'react-icons/fa'
 
 import Button from '@material-ui/core/Button'
 
-class Login extends Component {
+class SignUp extends Component {
 
-    formSuccess(e) {
+    formError(e) {
 
         e.preventDefault()
+
+        const username = document.getElementById('username').value
+        const email = document.getElementById('email').value
+        const password = document.getElementById("password").value
+        const password_check = document.getElementById("confirm-password").value
+
+        if (username === "" || email === "" || password === "" || password_check === "") {
+            alert("Please fill out all the forms")
+        } else if (password !== password_check) {
+            alert("Passwords are not the same!")
+        } else {
+            alert("Thank you for signing up!")
+        }
+
     }
 
     render() {
@@ -23,26 +37,40 @@ class Login extends Component {
                 <div className="container">
                     <div className="form-container">
 
-                        <h1>Log In</h1>
+                        <h1>Sign Up</h1>
 
-                        <form className="log-in form">
-                            <label className="username_email">Username or Email:</label><br />
+                        <form>
+
+                            <label className="username">Username:</label><br />
 
                             <div className="input-field">
-                                <input id="username_email" type="text" placeholder="Username or Email" autoComplete="off" /><br />
+                                <input id="username" type="text" placeholder="Username" autoComplete="off" /><br />
+                            </div>
+
+                            <label className="email">Email:</label><br />
+
+                            <div className="input-field">
+                                <input id="email" type="email" placeholder="Email" autoComplete="off" /><br />
                             </div>
 
                             <label className="password">Password:</label><br />
 
                             <div className="input-field">
-                                <input type="password" placeholder="Password" /><br />
+                                <input id="password" type="password" placeholder="Password" /><br />
                             </div>
+
+                            <label className="password-check">Confirm Password:</label><br />
+
+                            <div className="input-field">
+                                <input id="confirm-password" type="password" placeholder="Confirm Password" /><br />
+                            </div>
+
 
                             <Button
                                 variant="contained"
                                 color="primary"
                                 type="submit"
-                                value="Log In"
+                                value="Sign Up"
                                 style={{
                                     borderRadius: '55px',
                                     textTransform: "none",
@@ -51,10 +79,11 @@ class Login extends Component {
                                     height: "3rem"
                                 }}
                                 disableElevation
-                                onClick={this.formSuccess.bind(this)}
+                                onClick={this.formError.bind(this)}
                             >
-                                Log In
+                                Sign Up
                             </Button>
+
                         </form>
 
                         <p className="social-text">or sign up with social platforms</p>
@@ -103,8 +132,6 @@ class Login extends Component {
                             <button className="social-icon linkedin">
                                 <FaLinkedinIn />
                             </button>
-
-
                         </div>
 
                     </div>
@@ -114,4 +141,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default SignUp;
