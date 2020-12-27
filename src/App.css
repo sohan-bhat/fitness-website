@@ -101,6 +101,7 @@ footer {
     grid-template-columns: 85% 15%;
     padding: 0 0.04rem;
     position: relative;
+    text-align: center;
 }
 
 .input-field input {
@@ -112,12 +113,11 @@ footer {
     font-size: 1.1rem;
     color: #333;
     transform: translateX(-50%, -50%);
-
+    text-align: center;
 }
 
 .input-field input::placeholder {
     color: #aaa;
-    text-align: center;
     font-weight: 500;
 }
 
@@ -170,15 +170,40 @@ footer {
 }
 
 .password-check {
-    padding-left: 5.7rem;
+    padding-left: 6.7rem;
 }
 
 label {
     font-weight: bold;
 }
 
-h1 {
-    font-family: "Righteous", sans-serif;
-    padding-left: 7.8rem;
-    padding-bottom: 1rem;
+
+.admin_container {
+    display:flex;
+}
+
+.admin_container .admin_left_nav {
+    min-height: 100vh;
+    background: #282828;
+    border-right: 2px solid #01285e;
+}
+
+.admin_container .admin_right {
+    flex-grow: 1;
+}
+
+.admin_container h2 {
+    margin: 0px 0px 50px 0px;
+    border-bottom: 1px solid #dbdbdb;
+    color: #414141;
+    font-size: 40px;
+}
+
+
+.user_dashboard {
+    font-size: 60px;
+    font-family: 'Righteous', cursive;
+    color: #d5ebfe;
+    text-align: center;
+    margin-top: 200px;
 }

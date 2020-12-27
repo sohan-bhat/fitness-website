@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
-import MenuIcon from '@material-ui/icons/Menu'
 
 import { FitnessLogo } from "../ui/icons"
 
@@ -19,9 +17,6 @@ class Header extends Component {
                             backgroundColor: "#03a9f4"
                         }}
                     >
-                        <IconButton color="inherit">
-                            <MenuIcon />
-                        </IconButton>
 
                         <div style={{ flexGrow: 1, marginTop: "5px" }}>
                             <FitnessLogo

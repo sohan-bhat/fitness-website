@@ -4,15 +4,19 @@ import {
     FaFacebook,
     FaTwitter,
     FaLinkedinIn,
-}
-
-    from 'react-icons/fa'
+} from 'react-icons/fa'
 
 import Button from '@material-ui/core/Button'
 
 class SignUp extends Component {
 
-    formError(e) {
+    constructor() {
+        super()
+        this.formError = this.formError.bind(this)
+        this.formSuccess = this.formSuccess.bind(this)
+    }
+
+    formError = (e) => {
 
         e.preventDefault()
 
@@ -21,13 +25,34 @@ class SignUp extends Component {
         const password = document.getElementById("password").value
         const password_check = document.getElementById("confirm-password").value
 
-        if (username === "" || email === "" || password === "" || password_check === "") {
-            alert("Please fill out all the forms")
-        } else if (password !== password_check) {
-            alert("Passwords are not the same!")
-        } else {
-            alert("Thank you for signing up!")
+        if (!email) {
+            alert('Email required')
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            alert('Email address is invalid')
+        }else if (!username.trim()) {
+            alert('Username required')
+        }else if (!password) {
+            alert('Password is required')
+        } else if (password.length < 6) {
+            alert('Password needs to be 6 characters or more')
+        }else if(!password_check) {
+            alert('Confirm Password is required')
+        } else if (password_check !== password) {
+            alert('Passwords do not match')
         }
+
+    }
+
+    formSuccess = () => {
+
+
+        const username = document.getElementById('username').value
+        const email = document.getElementById('email').value
+        const password = document.getElementById("password").value
+
+        const dataToSubmit = { username, email, password }
+
+        console.log(dataToSubmit)
 
     }
 
@@ -74,12 +99,12 @@ class SignUp extends Component {
                                 style={{
                                     borderRadius: '55px',
                                     textTransform: "none",
-                                    marginLeft: "7rem",
+                                    marginLeft: "6.5rem",
                                     width: "10rem",
                                     height: "3rem"
                                 }}
                                 disableElevation
-                                onClick={this.formError.bind(this)}
+                                onClick={this.formError}
                             >
                                 Sign Up
                             </Button>
