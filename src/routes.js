@@ -18,11 +18,16 @@ class App extends Component {
 
     constructor(props) {
         super(props)
+        this.authListener = this.authListener.bind(this)
 
         this.state = {
             user: {}
         }
 
+    }
+
+    componentDidMount() {
+        this.authListener()
     }
 
     authListener = () => {
@@ -40,7 +45,6 @@ class App extends Component {
     }
 
     render() {
-
         return(
             <Layout>
                 <Switch>
@@ -52,6 +56,8 @@ class App extends Component {
                 </Switch>
             </Layout>
         )
+        
+        {this.state.user ? (<Home />) : (<Login />)}
     }
 }
 
