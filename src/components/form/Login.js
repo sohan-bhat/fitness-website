@@ -9,8 +9,6 @@ import {
 import Button from '@material-ui/core/Button'
 import fire from '../../config/firebase'
 
-import fire from '../../config/firebase'
-
 class Login extends Component {
 
     
