@@ -9,6 +9,8 @@ import {
 import Button from '@material-ui/core/Button'
 import fire from '../../config/firebase'
 
+import fire from '../../config/firebase'
+
 class Login extends Component {
 
     
@@ -20,6 +22,26 @@ class Login extends Component {
             password: "",
         }
 
+        this.state = {
+            email: "",
+            password: ""
+        }
+
+    }
+
+    login = (e) => {
+        e.preventDefault()
+        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
+            console.log(u);
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
     login = (e) => {
@@ -67,6 +89,8 @@ class Login extends Component {
                                     placeholder="Username or Email"
                                     onChange={e => this.updateEmail(e.target.value)}
                                     autoComplete="off"
+                                    onChange={this.state.handleChange}
+                                    defaultValue={this.state.email}
                                 /><br />
                             </div>
 
@@ -80,6 +104,8 @@ class Login extends Component {
                                     placeholder="Password"
                                     onChange={e => this.updatePassword(e.target.value)}
                                     autoComplete="off"
+                                    onChange={this.state.handleChange}
+                                    defaultValue={this.state.password}
                                 /><br />
                             </div>
 
@@ -97,6 +123,7 @@ class Login extends Component {
                                 }}
                                 onClick={this.login}
                                 disableElevation
+                                onClick={this.login}
                             >
                                 Log In
                             </Button>
