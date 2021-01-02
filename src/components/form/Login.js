@@ -20,20 +20,6 @@ class Login extends Component {
             password: "",
         }
 
-        this.state = {
-            email: "",
-            password: ""
-        }
-
-    }
-
-    login = (e) => {
-        e.preventDefault()
-        fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-            console.log(u);
-        }).catch((err) => {
-            console.log(err)
-        })
     }
 
     handleChange = (e) => {
@@ -43,6 +29,9 @@ class Login extends Component {
     }
 
     login = (e) => {
+
+        console.log(this.state.email)
+
         e.preventDefault()
         fire.auth()
         .signInWithEmailAndPassword(this.state.email, this.state.password)
@@ -54,15 +43,12 @@ class Login extends Component {
     }
 
     updateEmail = (e) => {
-        let test = e.trim();
-
         this.setState({
-            email: test
+            email: e
         })
     }
 
     updatePassword = (e) => {
-        
         this.setState({
             password: e
         })
@@ -87,7 +73,6 @@ class Login extends Component {
                                     placeholder="Username or Email"
                                     onChange={e => this.updateEmail(e.target.value)}
                                     autoComplete="off"
-                                    onChange={this.state.handleChange}
                                     defaultValue={this.state.email}
                                 /><br />
                             </div>
@@ -102,7 +87,6 @@ class Login extends Component {
                                     placeholder="Password"
                                     onChange={e => this.updatePassword(e.target.value)}
                                     autoComplete="off"
-                                    onChange={this.state.handleChange}
                                     defaultValue={this.state.password}
                                 /><br />
                             </div>
@@ -119,7 +103,6 @@ class Login extends Component {
                                     width: "10rem",
                                     height: "3rem"
                                 }}
-                                onClick={this.login}
                                 disableElevation
                                 onClick={this.login}
                             >

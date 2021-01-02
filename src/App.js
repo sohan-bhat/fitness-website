@@ -3,7 +3,7 @@ import './App.css'
 
 import fire from './config/firebase'
 
-import { Switch, Route } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 
 import Layout from './hoc/Layout'
 
