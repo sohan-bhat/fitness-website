@@ -20,6 +20,7 @@ class SignUp extends Component {
         this.state = {
             email: "",
             password: "",
+            displayName: ""
         }
 
     }
@@ -56,13 +57,16 @@ class SignUp extends Component {
     }
 
     signup = () => {
+
+
         fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then((user) => {
-                console.log(user);
+                return user.user.updateProfile({
+                    displayName: this.state.displayName
+                })
             }).catch((err) => {
                 console.log(err);
             })
-
     }
 
     updateEmail = (e) => {
@@ -80,6 +84,13 @@ class SignUp extends Component {
         })
     }
 
+    updateDisplayName = (e) => {
+        
+        this.setState({
+            displayName: e
+        })
+    }
+
     render() {
         return (
             <div>
@@ -90,14 +101,15 @@ class SignUp extends Component {
 
                         <form>
 
-                            <label className="username">Username:</label><br />
+                            <label className="username">Full Name:</label><br />
 
                             <div className="input-field">
                                 <input
                                     id="username"
                                     type="text"
-                                    placeholder="Username"
+                                    placeholder="Full Name"
                                     autoComplete="off"
+                                    onChange={e => this.updateDisplayName(e.target.value)}
                                 /><br />
                             </div>
 

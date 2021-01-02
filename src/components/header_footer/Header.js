@@ -38,7 +38,7 @@ class Header extends Component {
                                 padding: "4px 14px",
                                 fontWeight: "600"
                             }}
-                            href="/register/user/signup"
+                            href="/signup"
                             disableElevation
                             className="button"
                         >Sign Up</Button>
@@ -52,7 +52,7 @@ class Header extends Component {
                                 textTransform: "none",
                                 fontWeight: "600"
                             }}
-                            href="/register/user/login"
+                            href="/login"
                             disableElevation
                         >Log In</Button>
                     </Toolbar>

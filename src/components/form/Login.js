@@ -7,6 +7,7 @@ import {
 } from 'react-icons/fa'
 
 import Button from '@material-ui/core/Button'
+import fire from '../../config/firebase'
 
 class Login extends Component {
 
@@ -14,9 +15,37 @@ class Login extends Component {
     constructor(props) {
         super(props)
 
-        this.login = this.login.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+        this.state = {
+            email: "",
+            password: "",
+        }
 
+    }
+
+    login = (e) => {
+        e.preventDefault()
+        fire.auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
+        .then((user) => {
+            console.log(user);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    updateEmail = (e) => {
+        let test = e.trim();
+
+        this.setState({
+            email: test
+        })
+    }
+
+    updatePassword = (e) => {
+        
+        this.setState({
+            password: e
+        })
     }
 
     render() {
@@ -36,6 +65,7 @@ class Login extends Component {
                                     id="email"
                                     type="text"
                                     placeholder="Username or Email"
+                                    onChange={e => this.updateEmail(e.target.value)}
                                     autoComplete="off"
                                 /><br />
                             </div>
@@ -48,6 +78,7 @@ class Login extends Component {
                                     id="password"
                                     type="password"
                                     placeholder="Password"
+                                    onChange={e => this.updatePassword(e.target.value)}
                                     autoComplete="off"
                                 /><br />
                             </div>
@@ -64,6 +95,7 @@ class Login extends Component {
                                     width: "10rem",
                                     height: "3rem"
                                 }}
+                                onClick={this.login}
                                 disableElevation
                             >
                                 Log In
