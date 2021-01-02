@@ -6,14 +6,22 @@ import {
     FaLinkedinIn,
 } from 'react-icons/fa'
 
+import fire from '../../config/firebase'
+
 import Button from '@material-ui/core/Button'
 
 class SignUp extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.formError = this.formError.bind(this)
-        this.formSuccess = this.formSuccess.bind(this)
+        this.signup = this.signup.bind(this)
+
+        this.state = {
+            email: "",
+            password: "",
+        }
+
     }
 
     formError = (e) => {
@@ -25,35 +33,51 @@ class SignUp extends Component {
         const password = document.getElementById("password").value
         const password_check = document.getElementById("confirm-password").value
 
-        if (!email) {
+        if (!username.trim()) {
+            alert('Username required')
+        } else if (username.length < 6) {
+            alert("Username must be at least 6 charcters long")
+        } else if (!email) {
             alert('Email required')
         } else if (!/\S+@\S+\.\S+/.test(email)) {
             alert('Email address is invalid')
-        }else if (!username.trim()) {
-            alert('Username required')
-        }else if (!password) {
+        } else if (!password) {
             alert('Password is required')
         } else if (password.length < 6) {
             alert('Password needs to be 6 characters or more')
-        }else if(!password_check) {
+        } else if (!password_check) {
             alert('Confirm Password is required')
         } else if (password_check !== password) {
             alert('Passwords do not match')
+        } else {
+            this.signup()
         }
 
     }
 
-    formSuccess = () => {
+    signup = () => {
+        fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then((user) => {
+                console.log(user);
+            }).catch((err) => {
+                console.log(err);
+            })
 
+    }
 
-        const username = document.getElementById('username').value
-        const email = document.getElementById('email').value
-        const password = document.getElementById("password").value
+    updateEmail = (e) => {
+        let test = e.trim();
 
-        const dataToSubmit = { username, email, password }
+        this.setState({
+            email: test
+        })
+    }
 
-        console.log(dataToSubmit)
-
+    updatePassword = (e) => {
+        
+        this.setState({
+            password: e
+        })
     }
 
     render() {
@@ -69,25 +93,46 @@ class SignUp extends Component {
                             <label className="username">Username:</label><br />
 
                             <div className="input-field">
-                                <input id="username" type="text" placeholder="Username" autoComplete="off" /><br />
+                                <input
+                                    id="username"
+                                    type="text"
+                                    placeholder="Username"
+                                    autoComplete="off"
+                                /><br />
                             </div>
 
-                            <label className="email">Email:</label><br />
+                            <label className="email">Email: </label><br />
 
                             <div className="input-field">
-                                <input id="email" type="email" placeholder="Email" autoComplete="off" /><br />
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="Email"
+                                    onChange={e => this.updateEmail(e.target.value)}
+                                    autoComplete="off"
+                                /><br />
                             </div>
 
                             <label className="password">Password:</label><br />
 
                             <div className="input-field">
-                                <input id="password" type="password" placeholder="Password" /><br />
+                                <input
+                                    id="password"
+                                    type="password"
+                                    placeholder="Password"
+                                    onChange={e => this.updatePassword(e.target.value)}
+                                    autoComplete="off"
+                                /><br />
                             </div>
 
                             <label className="password-check">Confirm Password:</label><br />
 
                             <div className="input-field">
-                                <input id="confirm-password" type="password" placeholder="Confirm Password" /><br />
+                                <input
+                                    id="confirm-password"
+                                    type="password"
+                                    placeholder="Confirm Password"
+                                /><br />
                             </div>
 
 

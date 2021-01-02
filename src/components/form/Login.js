@@ -4,17 +4,19 @@ import {
     FaFacebook,
     FaTwitter,
     FaLinkedinIn
-}
-
-    from 'react-icons/fa'
+} from 'react-icons/fa'
 
 import Button from '@material-ui/core/Button'
 
 class Login extends Component {
 
-    formSuccess(e) {
+    
+    constructor(props) {
+        super(props)
 
-        e.preventDefault()
+        this.login = this.login.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+
     }
 
     render() {
@@ -26,16 +28,28 @@ class Login extends Component {
                         <h1>Log In</h1>
 
                         <form className="log-in form">
-                            <label className="username_email">Username or Email:</label><br />
+                            <label className="email">Username or Email:</label><br />
 
                             <div className="input-field">
-                                <input id="username_email" type="text" placeholder="Username or Email" autoComplete="off" /><br />
+                                <input
+                                    name="email"
+                                    id="email"
+                                    type="text"
+                                    placeholder="Username or Email"
+                                    autoComplete="off"
+                                /><br />
                             </div>
 
                             <label className="password">Password:</label><br />
 
                             <div className="input-field">
-                                <input type="password" placeholder="Password" /><br />
+                                <input
+                                    name="password"
+                                    id="password"
+                                    type="password"
+                                    placeholder="Password"
+                                    autoComplete="off"
+                                /><br />
                             </div>
 
                             <Button
@@ -51,7 +65,6 @@ class Login extends Component {
                                     height: "3rem"
                                 }}
                                 disableElevation
-                                onClick={this.formSuccess.bind(this)}
                             >
                                 Log In
                             </Button>
