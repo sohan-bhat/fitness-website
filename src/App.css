@@ -1,19 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-
 /*=============================
             LAYOUT
 ===============================*/
 
+.img_cover {
+    background-size: cover !important;
+}
+
 body {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     font-family: 'Roboto', sans-serif;
 }
 
 .bck_blue {
     background: #152855;
 }
+
+/*=============================
+            FOOTER
+=============================*/
 
 footer .footer_disclaimer {
     margin: 10px 0px;
@@ -24,13 +31,6 @@ footer {
     font-size: 16px;
     color: #ffffff;
     padding: 30px 0px;
-}
-
-@media(min-width: 477) {
-    footer {
-        width: 100%;
-        padding: 100%;
-    }
 }
 
 /*=============================
@@ -164,10 +164,6 @@ footer {
     text-decoration: none;
 }
 
-.img_cover {
-    background-size: cover !important;
-}
-
 .username {
     padding-left: 7.58rem;
 }
@@ -193,7 +189,7 @@ label {
 ===============================*/
 
 .admin_container {
-    display:flex;
+    display: flex;
 }
 
 .admin_container .admin_left_nav {
@@ -213,7 +209,6 @@ label {
     font-size: 40px;
 }
 
-
 .user_dashboard {
     font-size: 60px;
     font-family: 'Righteous', cursive;
@@ -226,14 +221,19 @@ label {
             CAROUSEL
 ===============================*/
 
-.card {
-    width: 100%;
-    height: 200px;
-    background: #333;
-    color: #fff;
-    font-size: 30px;
-    margin: 0 20px;
-    display: flex;
-    justify-content: center;
+.carousel_wrapper {
+    padding: 5%;
     align-items: center;
+    font-size: 1.5rem;
+}
+
+.carousel {
+    text-align: center;
+    color: white;
+}
+
+.carousel-item {
+    margin: 0;
+    padding: 10%;
+    background: #333;
 }

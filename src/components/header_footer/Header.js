@@ -10,7 +10,7 @@ class Header extends Component {
     render() {
         return (
             <div>
-                <AppBar position="relative">
+                <AppBar position="static">
                     <Toolbar
                         style={{
                             display: "flex",
@@ -20,10 +20,11 @@ class Header extends Component {
 
                         <div style={{ flexGrow: 1, marginTop: "5px" }}>
                             <FitnessLogo
+                                className="fitness_logo"
                                 link={true}
                                 linkTo="/"
-                                width="70px"
-                                height="70px"
+                                width="50px"
+                                height="50px"
                             />
                         </div>
 
@@ -31,12 +32,12 @@ class Header extends Component {
                             variant="outlined"
                             color="secondary"
                             style={{
-                                position: "absolute",
+                                position: "relative",
                                 textTransform: "none",
                                 borderColor: "#f44336",
-                                left: "82%",
+                                left: "-7.5%",
                                 padding: "4px 14px",
-                                fontWeight: "600"
+                                fontWeight: "600",
                             }}
                             href="/signup"
                             disableElevation
@@ -47,13 +48,14 @@ class Header extends Component {
                             variant="contained"
                             color="secondary"
                             style={{
-                                position: "absolute",
-                                left: "89%",
+                                position: "inherit",
+                                left: "-6%",
                                 textTransform: "none",
                                 fontWeight: "600"
                             }}
                             href="/login"
                             disableElevation
+                            className="button"
                         >Log In</Button>
                     </Toolbar>
                 </AppBar>
