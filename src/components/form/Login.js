@@ -29,16 +29,13 @@ class Login extends Component {
     }
 
     login = (e) => {
-
-        console.log(this.state.email)
-
         e.preventDefault()
         fire.auth()
         .signInWithEmailAndPassword(this.state.email, this.state.password)
-        .then((user) => {
-            console.log(user);
-        }).catch((err) => {
-            console.log(err);
+        .then(() => {
+            // * skip line
+        }).catch(() => {
+            alert("Email or Password is wrong!")
         })
     }
 

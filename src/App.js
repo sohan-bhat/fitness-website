@@ -50,16 +50,6 @@ class App extends Component {
 
     render() {
         return(
-            // <Layout>
-            //     <Switch>
-            //         <Route exact strict path="/" component={Home} />
-            //         <Route exact strict path="/home" component={Home} />
-            //         <Route exact strict path="/register/user/login" component={Login} />
-            //         <Route exact strict path="/register/user/signup" component={SignUp} />
-            //         <Route exact strict path="/register/user/dashboard" component={Dashboard} />
-            //     </Switch>
-            // </Layout>
-
             <BrowserRouter>
                 <Layout>
                     <Switch>
