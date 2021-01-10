@@ -34,14 +34,13 @@ class Header extends Component {
                             style={{
                                 position: "relative",
                                 textTransform: "none",
-                                borderColor: "#f44336",
+                                borderColor: "#f50057",
                                 left: "-7.5%",
                                 padding: "4px 14px",
                                 fontWeight: "600",
+                                color: "#f50057"
                             }}
                             href="/signup"
-                            disableElevation
-                            className="button"
                         >Sign Up</Button>
 
                         <Button
@@ -51,11 +50,11 @@ class Header extends Component {
                                 position: "inherit",
                                 left: "-6%",
                                 textTransform: "none",
-                                fontWeight: "600"
+                                fontWeight: "600",
+                                color: "#ffffff"
                             }}
                             href="/login"
-                            disableElevation
-                            className="button"
+                            className="login-btn"
                         >Log In</Button>
                     </Toolbar>
                 </AppBar>

@@ -210,11 +210,15 @@ label {
 }
 
 .user_dashboard {
-    font-size: 60px;
-    font-family: 'Righteous', cursive;
     color: #d5ebfe;
     text-align: center;
     margin-top: 200px;
+}
+
+.dash_text {
+    font-family: 'Righteous', cursive, sans-serif;
+    font-size: 60px;
+    color: gray;
 }
 
 /*=============================
@@ -230,6 +234,10 @@ label {
 .carousel {
     text-align: center;
     color: white;
+}
+
+img {
+    width: 50%;
 }
 
 .carousel-item {

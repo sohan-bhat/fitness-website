@@ -78,14 +78,14 @@ class SignUp extends Component {
     }
 
     updatePassword = (e) => {
-        
+
         this.setState({
             password: e
         })
     }
 
     updateDisplayName = (e) => {
-        
+
         this.setState({
             displayName: e
         })
@@ -160,7 +160,6 @@ class SignUp extends Component {
                                     width: "10rem",
                                     height: "3rem"
                                 }}
-                                disableElevation
                                 onClick={this.formError}
                             >
                                 Sign Up

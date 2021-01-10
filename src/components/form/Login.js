@@ -11,7 +11,7 @@ import fire from '../../config/firebase'
 
 class Login extends Component {
 
-    
+
     constructor(props) {
         super(props)
 
@@ -31,12 +31,12 @@ class Login extends Component {
     login = (e) => {
         e.preventDefault()
         fire.auth()
-        .signInWithEmailAndPassword(this.state.email, this.state.password)
-        .then(() => {
-            // * skip line
-        }).catch(() => {
-            alert("Email or Password is wrong!")
-        })
+            .signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => {
+                // * skip line
+            }).catch(() => {
+                alert("Email or Password is wrong!")
+            })
     }
 
     updateEmail = (e) => {
@@ -100,7 +100,6 @@ class Login extends Component {
                                     width: "10rem",
                                     height: "3rem"
                                 }}
-                                disableElevation
                                 onClick={this.login}
                             >
                                 Log In

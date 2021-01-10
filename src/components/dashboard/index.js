@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import DashLayout from '../../hoc/DashLayout'
 import fire from '../../config/firebase'
 
+import Button from '@material-ui/core/Button'
+
 class Dashboard extends Component {
 
     logout = () => {
@@ -13,7 +15,7 @@ class Dashboard extends Component {
         if (fire.auth().currentUser.displayName === null) {
             window.location.reload()
         } else {
-            return `Hi ${fire.auth().currentUser.displayName} this is your dashboard!`            
+            return `Hi ${fire.auth().currentUser.displayName} this is your dashboard!`
         }
 
     }
@@ -22,16 +24,26 @@ class Dashboard extends Component {
         return (
             <DashLayout>
                 <div className="user_dashboard">
-                    <div>
-                       {this.returnCurrentUserName()}
+                    <div className="dash_text">
+                        {this.returnCurrentUserName()}
                     </div>
-                    <button onClick={this.logout}>Logout</button>
+                    <Button
+                        variant="contained"
+                        style={{
+                            backgroundColor: "#333",
+                            color: "inherit",
+                            outline: "none",
+                            border: "none",
+                            padding: "1% 2%"
+                        }}
+                        onClick={this.logout}
+                    >Log out</Button>
                 </div>
             </DashLayout>
         );
     }
 
-    
+
 }
 
 export default Dashboard;
