@@ -4,6 +4,9 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Button from '@material-ui/core/Button'
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 import { FitnessLogo } from "../ui/icons"
 
 class Header extends Component {
@@ -14,7 +17,7 @@ class Header extends Component {
                     <Toolbar
                         style={{
                             display: "flex",
-                            backgroundColor: "#03a9f4"
+                            backgroundColor: "#03a9f4",
                         }}
                     >
 
@@ -23,14 +26,29 @@ class Header extends Component {
                                 className="fitness_logo"
                                 link={true}
                                 linkTo="/"
-                                width="50px"
-                                height="50px"
+                                width="70px"
+                                height="70px"
                             />
+                        </div>
+
+                        <div className="search-box">
+                            <input
+                                type="text"
+                                placeholder="Find Exercise"
+                                className="search-txt"
+                            />
+                            <button className="search-btn"
+                                type="submit"
+                                ref={input => this.button = input}
+                                onClick={this.redirectSearch}>
+                                <FontAwesomeIcon icon={faSearch} />
+                            </button>
                         </div>
 
                         <Button
                             variant="outlined"
-                            color="secondary"
+                            color="inherit"
+                            disableElevation="true"
                             style={{
                                 position: "relative",
                                 textTransform: "none",
@@ -38,7 +56,6 @@ class Header extends Component {
                                 left: "-7.5%",
                                 padding: "4px 14px",
                                 fontWeight: "600",
-                                color: "#f50057"
                             }}
                             href="/signup"
                         >Sign Up</Button>

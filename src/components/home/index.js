@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-import CarouselSlider from './Carousel'
-
 class Home extends Component {
     render() {
 
         return (
-            <CarouselSlider />
+            
+            <div style={{ backgroundColor: "red", height: "800px" }}>
+                
+            </div>
+            
         )
     }
 

@@ -9,13 +9,12 @@ import Layout from './hoc/Layout'
 
 import Home from './components/home'
 
-import Login from './components/form/Login'
-import SignUp from './components/form/SignUp'
 import Dashboard from './components/dashboard'
+import Exercises from './components/dashboard/Exercises'
+
 import { BrowserRouter } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-
 
 
 class App extends Component {
@@ -26,11 +25,11 @@ class App extends Component {
         this.state = {
             user: {}
         }
-        
+
 
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         this.authListener();
     }
 
@@ -49,17 +48,16 @@ class App extends Component {
     }
 
     render() {
-        return(
+        return (
             <BrowserRouter>
                 <Layout>
                     <Switch>
                         <PublicRoute restricted={false} component={Home} path="/" exact />
-                        <PublicRoute restricted={true} component={Login} path="/login" exact />
-                        <PublicRoute restricted={true} component={SignUp} path="/signup" exact />
                         <PrivateRoute component={Dashboard} path="/dashboard" exact />
+                        <PublicRoute component={Exercises} path="/exercises" exact />
                     </Switch>
                 </Layout>
-          </BrowserRouter>
+            </BrowserRouter>
         )
     }
 
