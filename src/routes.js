@@ -9,6 +9,9 @@ import Layout from './hoc/Layout'
 
 import Home from './components/home'
 
+import Login from './components/form/Login'
+import Signup from './components/form/Signup'
+
 import Dashboard from './components/dashboard'
 import Exercises from './components/dashboard/Exercises'
 
@@ -52,9 +55,11 @@ class App extends Component {
             <BrowserRouter>
                 <Layout>
                     <Switch>
-                        <PublicRoute restricted={false} component={Home} path="/" exact />
-                        <PrivateRoute component={Dashboard} path="/dashboard" exact />
-                        <PublicRoute component={Exercises} path="/exercises" exact />
+                        <PublicRoute restricted={false} component={Home} path={["/", "/home"]} exact />
+                        <PublicRoute restricted={true} component={Login} path="/login" exact />
+                        <PublicRoute restricted={true} component={Signup} path="/signup" exact />
+                        <PrivateRoute component={Dashboard} path={["/dashboard", "/admin"]} exact />
+                        <PublicRoute component={Exercises} path={["/dashboard/exercises", "/admin/exercises"]} exact />
                     </Switch>
                 </Layout>
             </BrowserRouter>

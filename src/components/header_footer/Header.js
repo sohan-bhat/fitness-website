@@ -17,7 +17,7 @@ class Header extends Component {
                     <Toolbar
                         style={{
                             display: "flex",
-                            backgroundColor: "#03a9f4",
+                            backgroundColor: "#3260ed",
                         }}
                     >
 
