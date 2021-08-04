@@ -48,7 +48,7 @@ class Header extends Component {
                         <Button
                             variant="outlined"
                             color="inherit"
-                            disableElevation="true"
+                            disableElevation
                             style={{
                                 position: "relative",
                                 textTransform: "none",
