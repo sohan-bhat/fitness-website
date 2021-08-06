@@ -14,7 +14,7 @@ const SideDrawer = (props) => {
             onClose={() => props.onClose(false)}
         >
 
-            <List component="nav" style={{ marginTop: "70%" }}>
+            <List component="nav" style={{ marginTop: "70%" }} onClick={() => props.onClose(false)}>
 
                 <Link to="/home" style={{ textDecoration: "none", color: "inherit" }}>
 

@@ -2,6 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 /*=============================
+        PAGE NOT FOUND
+===============================*/
+
+.page-not-found span {
+    padding-left: 15rem;
+}
+
+.page-not-found {
+    margin: 240px 0;
+    font-family: 'Righteous', 'Poppins', sans-serif;
+    font-size: 5rem;
+    color: #f54545;
+    padding-left: 30%;
+    display: grid;
+}
+
+/*=============================
         SPLASH PAGE
 ===============================*/
 
@@ -303,6 +320,23 @@ label {
             DASHBOARD
 ===============================*/
 
+.dashboard-text span {
+    display: flex;
+    padding-left: 37%;
+}
+
+.dashboard-text {
+
+    color: #f54545
+
+}
+
+.dash_text {
+    font-family: 'Righteous', cursive, sans-serif;
+    font-size: 60px;
+}
+
+
 .admin_container {
     display: flex;
 }
@@ -329,13 +363,6 @@ label {
     text-align: center;
     margin-top: 200px;
 }
-
-.dash_text {
-    font-family: 'Righteous', cursive, sans-serif;
-    font-size: 60px;
-    color: gray;
-}
-
 /*=============================
             CAROUSEL
 ===============================*/

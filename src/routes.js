@@ -8,6 +8,7 @@ import { Switch } from 'react-router-dom'
 import Layout from './hoc/Layout'
 
 import Home from './components/home'
+import PageNotFound from './components/PageNotFound'
 
 import Login from './components/form/Login'
 import Signup from './components/form/Signup'
@@ -15,7 +16,7 @@ import Signup from './components/form/Signup'
 import Dashboard from './components/dashboard'
 import Exercises from './components/dashboard/Exercises'
 
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
@@ -60,6 +61,7 @@ class App extends Component {
                         <PublicRoute restricted={true} component={Signup} path="/signup" exact />
                         <PrivateRoute component={Dashboard} path={["/dashboard", "/admin"]} exact />
                         <PublicRoute component={Exercises} path={["/dashboard/exercises", "/admin/exercises"]} exact />
+                        <Route component={PageNotFound} />
                     </Switch>
                 </Layout>
             </BrowserRouter>

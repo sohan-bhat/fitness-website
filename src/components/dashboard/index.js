@@ -15,7 +15,11 @@ class Dashboard extends Component {
         if (fire.auth().currentUser.displayName === null) {
             window.location.reload()
         } else {
-            return `Hi ${fire.auth().currentUser.displayName} this is your dashboard!`
+            return (
+                <div className="dashboard-text">
+                    Hi {fire.auth().currentUser.displayName} this is your <span>Dashboard!</span>
+                </div>
+            )
         }
 
     }
