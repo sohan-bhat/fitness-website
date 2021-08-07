@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { FitnessLogo } from '../ui/icons'
+import { FitnessLogo } from '../utils/icons'
 
 class Footer extends Component {
     render() {

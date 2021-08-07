@@ -8,6 +8,7 @@ import {
 
 import Button from '@material-ui/core/Button'
 import fire from '../../config/firebase'
+import { showSuccessToast, showErrorToast } from '../utils/Tools'
 
 class Login extends Component {
 
@@ -33,9 +34,9 @@ class Login extends Component {
         fire.auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(() => {
-                // * skip line
+                showSuccessToast("Successfully logged in!")
             }).catch(() => {
-                alert("Email or Password is wrong!")
+                showErrorToast("User not created or email or password")
             })
     }
 

@@ -4,10 +4,13 @@ import DashLayout from '../../hoc/DashLayout'
 import fire from '../../config/firebase'
 
 import Button from '@material-ui/core/Button'
+import { showInfoToast, showSuccessToast } from '../utils/Tools';
 
 class Dashboard extends Component {
 
     logout = () => {
+        showSuccessToast("Successfully logged out!")
+        showInfoToast("Note: You must login again to go to Dashboard")
         fire.auth().signOut();
     }
 
@@ -17,7 +20,7 @@ class Dashboard extends Component {
         } else {
             return (
                 <div className="dashboard-text">
-                    Hi {fire.auth().currentUser.displayName} this is your <span>Dashboard!</span>
+                    Hi {fire.auth().currentUser.displayName}, Welcome to your <span>Dashboard!</span>
                 </div>
             )
         }

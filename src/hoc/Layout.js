@@ -3,10 +3,10 @@ import React from 'react';
 import Header from '../components/header_footer/Header'
 import Footer from '../components/header_footer/Footer'
 
-const Layout = (props) => {
+const Layout = (props, { user }) => {
     return (
         <div>
-            <Header />
+            <Header user={user} />
             {props.children}
             <Footer />
         </div>

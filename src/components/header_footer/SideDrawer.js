@@ -2,9 +2,16 @@ import React from 'react';
 
 import { Drawer, List, ListItem } from '@material-ui/core';
 import { Link } from 'react-router-dom'
-
+import fire from '../../config/firebase'
+import { showSuccessToast, showInfoToast } from '../utils/Tools'
 
 const SideDrawer = (props) => {
+
+    const logout = () => {
+        showSuccessToast("Successfully logged out!")
+        showInfoToast("Note: You must login again to go to Dashboard")
+        fire.auth().signOut();
+    }
 
     return (
 
@@ -26,25 +33,57 @@ const SideDrawer = (props) => {
 
                 </Link>
 
-                <Link to="/signup" style={{ textDecoration: "none", color: "inherit" }}>
+                {fire.auth().currentUser ?
 
-                    <ListItem button style={{ padding: "2rem", fontWeight: "bold" }}>
+                    <>
 
-                        Sign Up
+                        <Link to="/dashboard" style={{ textDecoration: "none", color: "inherit" }}>
 
-                    </ListItem>
+                            <ListItem button style={{ padding: "2rem", fontWeight: "bold" }}>
 
-                </Link>
+                                Dashboard
 
-                <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+                            </ListItem>
 
-                    <ListItem button style={{ padding: "2rem", fontWeight: "bold" }}>
+                        </Link>
 
-                        Login
+                        <Link onClick={() => logout()} style={{ textDecoration: "none", color: "inherit" }}>
 
-                    </ListItem>
+                            <ListItem button style={{ padding: "2rem", fontWeight: "bold" }}>
 
-                </Link>
+                                Logout
+
+                            </ListItem>
+
+                        </Link>
+
+                    </>
+
+                    :
+
+                    <>
+                        <Link to="/signup" style={{ textDecoration: "none", color: "inherit" }}>
+
+                            <ListItem button style={{ padding: "2rem", fontWeight: "bold" }}>
+
+                                Sign Up
+
+                            </ListItem>
+
+                        </Link>
+
+                        <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+
+                            <ListItem button style={{ padding: "2rem", fontWeight: "bold" }}>
+
+                                Login
+
+                            </ListItem>
+
+                        </Link>
+                    </>
+
+                }
 
                 <Link to="/aboutUs" style={{ textDecoration: "none", color: "inherit" }}>
 

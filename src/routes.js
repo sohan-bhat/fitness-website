@@ -16,10 +16,12 @@ import Signup from './components/form/Signup'
 import Dashboard from './components/dashboard'
 import Exercises from './components/dashboard/Exercises'
 
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import { BrowserRouter, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-
 
 class App extends Component {
 
@@ -53,18 +55,22 @@ class App extends Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <Layout>
-                    <Switch>
-                        <PublicRoute restricted={false} component={Home} path={["/", "/home"]} exact />
-                        <PublicRoute restricted={true} component={Login} path="/login" exact />
-                        <PublicRoute restricted={true} component={Signup} path="/signup" exact />
-                        <PrivateRoute component={Dashboard} path={["/dashboard", "/admin"]} exact />
-                        <PublicRoute component={Exercises} path={["/dashboard/exercises", "/admin/exercises"]} exact />
-                        <Route component={PageNotFound} />
-                    </Switch>
-                </Layout>
-            </BrowserRouter>
+            <>
+                <BrowserRouter>
+                    <Layout>
+                        <Switch>
+                            <PublicRoute restricted={false} component={Home} path={["/", "/home"]} exact />
+                            <PublicRoute restricted={true} component={Login} path="/login" exact />
+                            <PublicRoute restricted={true} component={Signup} path="/signup" exact />
+                            <PrivateRoute component={Dashboard} path={["/dashboard", "/admin"]} exact />
+                            <Route component={Exercises} path={["/dashboard/exercises", "/admin/exercises"]} exact />
+                            <Route component={PageNotFound} />
+                        </Switch>
+                    </Layout>
+
+                </BrowserRouter>
+                <ToastContainer />
+            </>
         )
     }
 
