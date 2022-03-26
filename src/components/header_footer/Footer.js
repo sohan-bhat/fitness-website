@@ -17,7 +17,7 @@ class Footer extends Component {
                 </div>
 
                 <div className="footer_disclaimer">
-                    Fitscape Copyright © 2021 - 2030. All Rights Reserved
+                    Fitworld Copyright © 2021 - 2030. All Rights Reserved
                 </div>
 
             </footer>

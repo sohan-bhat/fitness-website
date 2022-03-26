@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import fitscape from '../../images/fitscape.png'
+import fitworld from '../../images/fitworld.png'
 
 export const FitnessLogo = (props) => {
 
@@ -10,7 +10,7 @@ export const FitnessLogo = (props) => {
         style={{
             width: props.width,
             height: props.height,
-            background: `url(${fitscape}) no-repeat`,
+            background: `url(${fitworld}) no-repeat`,
         }}
     >
         
