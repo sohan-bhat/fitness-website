@@ -2,6 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 /*=============================
+            EXERCISES
+===============================*/
+
+.exercise_drawer {
+    display: inline-block;
+    background-color: #FAF9F6;
+    width: 10%;
+    height: 5rem;
+}
+
+.exercise_content {
+    display: inline-block;
+}
+
+/*=============================
         PAGE NOT FOUND
 ===============================*/
 
@@ -10,7 +25,7 @@
 }
 
 .page-not-found {
-    margin: 240px 0;
+    margin: 15% 0;
     font-family: 'Righteous', 'Poppins', sans-serif;
     font-size: 5rem;
     color: #f54545;
@@ -116,7 +131,7 @@ input::placeholder {
 
 .search-box {
     position: absolute;
-    left: 50rem;
+    left: 50%;
     border-radius: 10px;
 }
 
@@ -363,27 +378,11 @@ label {
     text-align: center;
     margin-top: 200px;
 }
-/*=============================
-            CAROUSEL
-===============================*/
 
-.carousel_wrapper {
-    padding: 5%;
-    align-items: center;
-    font-size: 1.5rem;
-}
+@media only screen and (max-width: 792px) {
 
-.carousel {
-    text-align: center;
-    color: white;
-}
+    .signup_login_buttons {
+        display: none;
+    }
 
-img {
-    width: 50%;
-}
-
-.carousel-item {
-    margin: 0;
-    padding: 10%;
-    background: #333;
 }

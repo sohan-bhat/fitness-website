@@ -1,5 +1,6 @@
 import firebase from 'firebase'
 import 'firebase/app'
+import 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: "AIzaSyCYqtBYUYsNGrIzp1cYBQ6WFBDldUR30E4",
@@ -12,4 +13,23 @@ const firebaseConfig = {
 
 const fire = firebase.initializeApp(firebaseConfig)
 
+const db = firebase.firestore()
+
+
+const firebaseDocList = async () => {
+
+    var documents = await db.collection("Exercises").get()
+
+    var exercisesName = documents.docs.map(doc => doc.data().Name);
+    var exercisesTime = documents.docs.map(doc => doc.data().Time);
+
+    return {exercisesName, exercisesTime};
+
+}
+
 export default fire
+
+export {
+    firebaseDocList,
+    db,
+}

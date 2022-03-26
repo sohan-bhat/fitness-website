@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { FitnessLogo } from "../utils/icons"
-import { showInfoToast, showSuccessToast } from '../utils/Tools';
+import { showInfoToast, showSuccessToast } from '../utils/Tools.js';
 
 const Header = ({ user }) => {
 
@@ -56,7 +56,7 @@ const Header = ({ user }) => {
                         onClose={(value) => toggleDrawer(value)}
                     />
 
-                    <div style={{ flexGrow: 1, marginTop: "5px" }}>
+                    <div style={{ flexGrow: 1 }}>
                         <FitnessLogo
                             className="fitness_logo"
                             link={true}
@@ -100,9 +100,10 @@ const Header = ({ user }) => {
 
                         </>
 
-                        : <>
+                        : <div className="signup_login_buttons">
 
                             <Button
+                                className="signup_btn"
                                 variant="outlined"
                                 color="inherit"
                                 disableElevation
@@ -118,6 +119,7 @@ const Header = ({ user }) => {
                             >Sign Up</Button>
 
                             <Button
+                                className="login_btn"
                                 variant="contained"
                                 color="secondary"
                                 style={{
@@ -128,10 +130,10 @@ const Header = ({ user }) => {
                                     color: "#ffffff"
                                 }}
                                 href="/login"
-                                className="login-btn"
                             >Log In</Button>
 
-                        </>}
+                        </div>
+                    }
 
 
                 </Toolbar>

@@ -14,7 +14,7 @@ import Login from './components/form/Login'
 import Signup from './components/form/Signup'
 
 import Dashboard from './components/dashboard'
-import Exercises from './components/dashboard/Exercises'
+import Exercise from './components/exercise/Exercise.js'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -63,7 +63,7 @@ class App extends Component {
                             <PublicRoute restricted={true} component={Login} path="/login" exact />
                             <PublicRoute restricted={true} component={Signup} path="/signup" exact />
                             <PrivateRoute component={Dashboard} path={["/dashboard", "/admin"]} exact />
-                            <Route component={Exercises} path={["/dashboard/exercises", "/admin/exercises"]} exact />
+                            <Route component={Exercise} path={"/exercises"} exact />
                             <Route component={PageNotFound} />
                         </Switch>
                     </Layout>

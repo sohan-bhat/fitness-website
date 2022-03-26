@@ -8,7 +8,8 @@ class DashLayout extends Component {
             <div className="admin_container">
 
                 <div className="admin_left_nav">
-                    <Button href="dashboard/exercises" variant="outlined" color="secondary" style={{ color: "#f50057", outline: "none" }}>
+                    <Button href="/exercises" variant="outlined" color="secondary"
+                    style={{ color: "#f50057", outline: "none" }}>
                         View Exercises
                     </Button>
                 </div>
